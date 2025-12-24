@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://8swf45kkxbso"]
+
+[ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://roojjt6uiyd5" path="res://scenes/edge.tscn" id="2_0wfyh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(1219, 211)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_sugp2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.707967, 0.707967, 0.707967, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -9.0
+offset_top = 459.0
+offset_right = 1183.0
+offset_bottom = 659.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(599.5, 564.5)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="Hackenbush" type="Node2D" parent="."]
+script = ExtResource("1_o5qli")
+
+[node name="Edge" parent="Hackenbush" instance=ExtResource("2_0wfyh")]
+position = Vector2(234, 391)
+rotation = 1.03441
+
+[node name="Edge2" parent="Hackenbush" instance=ExtResource("2_0wfyh")]
+position = Vector2(230, 242)
+rotation = -1.09922
+edge_color = "red"
+
+[node name="Edge3" parent="Hackenbush" instance=ExtResource("2_0wfyh")]
+position = Vector2(339, 215)
+rotation = 0.603295
