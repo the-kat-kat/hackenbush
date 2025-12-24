@@ -44,4 +44,5 @@ func check_floating_edges():
 			if not is_safe:
 				edge.queue_free()
 				graph.erase(edge)
+				
 					

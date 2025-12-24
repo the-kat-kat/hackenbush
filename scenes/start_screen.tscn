@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://0lfkukbsr71a"]
+
+[ext_resource type="FontFile" uid="uid://bvxrs7qlk6sfc" path="res://fonts/RoyalBrand-Regular.otf" id="1_tx5wa"]
+[ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="2_hm208"]
+[ext_resource type="StyleBox" uid="uid://8ca7qiwflvuv" path="res://scenes/hover_button.tres" id="3_5pab1"]
+[ext_resource type="StyleBox" uid="uid://dru0rdi5oviai" path="res://scenes/pressed_button.tres" id="4_o30b1"]
+[ext_resource type="StyleBox" uid="uid://dc17muhajce21" path="res://scenes/normal_button.tres" id="5_ka6nf"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hackenbush" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.0
+offset_top = 50.0
+offset_right = 332.0
+offset_bottom = 316.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_tx5wa")
+theme_override_font_sizes/font_size = 150
+text = "Hackenbush"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 298.0
+offset_right = -274.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Start" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hm208")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = ExtResource("3_5pab1")
+theme_override_styles/pressed = ExtResource("4_o30b1")
+theme_override_styles/normal = ExtResource("5_ka6nf")
+text = "Start"
+
+[node name="HowToPlay" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hm208")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = ExtResource("3_5pab1")
+theme_override_styles/pressed = ExtResource("4_o30b1")
+theme_override_styles/normal = ExtResource("5_ka6nf")
+text = "How to Play"
