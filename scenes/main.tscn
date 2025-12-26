@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8swf45kkxbso"]
+[gd_scene load_steps=6 format=3 uid="uid://8swf45kkxbso"]
 
 [ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://roojjt6uiyd5" path="res://scenes/edge.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="4_jyhfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1219, 211)
@@ -47,7 +48,30 @@ rotation = 1.03441
 position = Vector2(230, 242)
 rotation = -1.09922
 edge_color = "red"
+node_a = 2
+node_b = 3
 
 [node name="Edge3" parent="Hackenbush" instance=ExtResource("2_0wfyh")]
 position = Vector2(339, 215)
 rotation = 0.603295
+node_a = 4
+node_b = 5
+
+[node name="Area2D" type="Area2D" parent="Hackenbush"]
+script = ExtResource("4_jyhfs")
+node_a = 6
+p0 = Vector2(-574.895, 639.821)
+p1 = Vector2(-200.475, 371.125)
+p2 = Vector2(-22.1035, -30.096)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/Area2D"]
+scale = Vector2(0.247834, 0.298544)
+points = PackedVector2Array(1170.14, 1597.75, 1521.18, 1386.73, 1682.58, 907.739)
+width = 50.0
+default_color = Color(0.117647, 0.564706, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/Area2D"]
+polygon = PackedVector2Array(-557.013, 663.909, -507.18, 626.893, -459.094, 588.661, -412.758, 549.212, -368.177, 508.547, -325.353, 466.668, -284.29, 423.575, -244.992, 379.271, -207.462, 333.758, -171.703, 287.039, -137.719, 239.118, -105.511, 189.998, -75.0816, 139.683, -46.4327, 88.1762, -19.5652, 35.4826, 5.08902, -17.4245, -49.2961, -42.7675, -73.9503, 10.1397, -99.8765, 60.9043, -127.507, 110.5, -156.842, 158.931, -187.883, 206.201, -220.634, 252.314, -255.095, 297.274, -291.271, 341.083, -329.164, 383.745, -368.777, 425.263, -410.114, 465.638, -453.18, 504.871, -497.976, 542.964, -544.508, 579.918, -592.777, 615.733)
