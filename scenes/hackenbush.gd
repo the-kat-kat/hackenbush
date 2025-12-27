@@ -12,7 +12,7 @@ func register_edge(edge: Node2D):
 	graph[edge] = [edge.node_a, edge.node_b]
 	
 func handle_cut(edge_node: Node2D):
-	print("currting: ", edge_node.name)
+	print("currting: ", edge_node)
 	graph.erase(edge_node)
 	edge_node.queue_free()
 	
@@ -44,5 +44,6 @@ func check_floating_edges():
 			if not is_safe:
 				edge.queue_free()
 				graph.erase(edge)
-				
+			
 					
+	
