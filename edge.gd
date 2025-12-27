@@ -7,6 +7,7 @@ extends Area2D
 @onready var line = $Line2D
 @onready var collision = $CollisionShape2D
 
+
 func _ready():
 	add_to_group("edges")
 	setup()
@@ -26,4 +27,8 @@ func setup():
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if (GameManager.current_player == 1 and edge_color == "blue") or (GameManager.current_player == 2 and edge_color == "red"):
+			print("rwrong color")
+			return
 		get_parent().handle_cut(self)
+		GameManager.inc_player()

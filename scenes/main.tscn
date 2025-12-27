@@ -1,9 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://8swf45kkxbso"]
+[gd_scene load_steps=9 format=3 uid="uid://8swf45kkxbso"]
 
 [ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/game_manager.gd" id="1_sugp2"]
+[ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="2_tefeu"]
+[ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://gx1i8ev281o3" path="res://scenes/vertex.tscn" id="4_tbgi4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+bg_color = Color(0.113725, 0.564706, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1219, 185)
@@ -28,6 +41,32 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 mouse_filter = 2
 
+[node name="Player1" type="Label" parent="CanvasLayer"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 172.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tefeu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_o6xl0")
+text = "Player 1"
+
+[node name="Player2" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 60.0
+offset_right = -50.0
+offset_bottom = 92.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tefeu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
+text = "Player 2"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
@@ -43,15 +82,16 @@ shape = SubResource("RectangleShape2D_0wfyh")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
 [node name="Hackenbush" type="Node2D" parent="." node_paths=PackedStringArray("vertices_holder")]
+position = Vector2(258, 7)
 script = ExtResource("1_o5qli")
 vertices_holder = NodePath("Vertices")
 
 [node name="0-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = true
-p0 = Vector2(1174.17, 1597.75)
+p0 = Vector2(1182.24, 1594.41)
 p1 = Vector2(1541.35, 1329.79)
-p2 = Vector2(1682.58, 907.739)
+p2 = Vector2(1678.54, 917.788)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/0-1"]
 scale = Vector2(0.247834, 0.298544)
@@ -96,7 +136,7 @@ node_a = 5
 node_b = 4
 p0 = Vector2(1250.84, 1075.22)
 p1 = Vector2(1452.59, 579.479)
-p2 = Vector2(1593.81, 535.934)
+p2 = Vector2(1452.59, 579.479)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-4"]
 position = Vector2(-141, -70)
@@ -180,9 +220,9 @@ script = ExtResource("4_jyhfs")
 curved = null
 edge_color = "red"
 node_a = 2
-p0 = Vector2(1513.11, 318.211)
-p1 = Vector2(1666.44, 542.634)
-p2 = Vector2(1666.44, 542.634)
+p0 = Vector2(1512, 317)
+p1 = Vector2(1559, 393)
+p2 = Vector2(1559, 393)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/2-1"]
 position = Vector2(-1136, -120)

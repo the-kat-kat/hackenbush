@@ -104,11 +104,11 @@ func setup():
 	collision.transform = line.transform
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print_debug("heyy")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("touched")
+		if (GameManager.current_player == 1 and edge_color == "blue") or (GameManager.current_player == 2 and edge_color == "red"):
+			print("rwrong color")
+			return
 		get_parent().handle_cut(self)
+		GameManager.inc_player()
 
-func _on_mouse_entered() -> void:
-	print_debug("hi there")
 	

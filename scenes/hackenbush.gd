@@ -43,7 +43,6 @@ func check_floating_edges():
 	var grounded = []
 	var stack = [0] # 0 is ground
 	
-	
 	while stack.size()>0:
 		var current_node = stack.pop_back()
 		if current_node not in grounded:
