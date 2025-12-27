@@ -1,6 +1,8 @@
 @tool
 extends Area2D
 
+var index: int
+
 @onready var line = $Line2D
 @onready var collision = $CollisionPolygon2D
 
@@ -10,7 +12,7 @@ extends Area2D
 @export var node_a: int = 0
 @export var node_b: int = 1
 
-@export var p0 : Vector2	
+@export var p0 : Vector2
 @export var p1 : Vector2
 @export var p2 : Vector2
 		

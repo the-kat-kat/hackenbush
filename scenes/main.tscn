@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://8swf45kkxbso"]
+[gd_scene load_steps=6 format=3 uid="uid://8swf45kkxbso"]
 
 [ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://gx1i8ev281o3" path="res://scenes/vertex.tscn" id="4_tbgi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
-size = Vector2(1219, 211)
+size = Vector2(1219, 185)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sugp2")
@@ -26,35 +27,35 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 mouse_filter = 2
-color = Color(0.707967, 0.707967, 0.707967, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_left = -9.0
-offset_top = 459.0
+offset_top = 483.0
 offset_right = 1183.0
 offset_bottom = 659.0
+color = Color(0.811968, 0.819782, 0.861055, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(599.5, 564.5)
+position = Vector2(599.5, 577.5)
 shape = SubResource("RectangleShape2D_0wfyh")
+debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
-[node name="Hackenbush" type="Node2D" parent="."]
+[node name="Hackenbush" type="Node2D" parent="." node_paths=PackedStringArray("vertices_holder")]
 script = ExtResource("1_o5qli")
+vertices_holder = NodePath("Vertices")
 
 [node name="0-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
-resolution = null
 curved = true
-node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
+p0 = Vector2(1174.17, 1597.75)
+p1 = Vector2(1541.35, 1329.79)
 p2 = Vector2(1682.58, 907.739)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/0-1"]
 scale = Vector2(0.247834, 0.298544)
-points = PackedVector2Array(1174.17, 1597.75, 1541.35, 1329.79, 1682.58, 907.739)
+points = PackedVector2Array(1182.24, 1594.41, 1541.35, 1329.79, 1678.54, 917.788)
 width = 50.0
 default_color = Color(0.117647, 0.564706, 1, 1)
 joint_mode = 2
@@ -63,44 +64,44 @@ end_cap_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/0-1"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
 
 [node name="0-5" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = true
 edge_color = "red"
-node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
-p2 = Vector2(1682.58, 907.739)
+node_a = 5
+node_b = 0
+p0 = Vector2(1735.03, 1832.23)
+p1 = Vector2(1448.55, 1641.3)
+p2 = Vector2(1258.91, 1081.92)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/0-5"]
 position = Vector2(-141, -70)
 scale = Vector2(0.247834, 0.298544)
 points = PackedVector2Array(1735.03, 1832.23, 1448.55, 1641.3, 1258.91, 1081.92)
 width = 50.0
-default_color = Color(0.117647, 0.564706, 1, 1)
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/0-5"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
 
 [node name="5-4" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = null
 edge_color = "red"
-node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
-p2 = Vector2(1682.58, 907.739)
+node_a = 5
+node_b = 4
+p0 = Vector2(1250.84, 1075.22)
+p1 = Vector2(1452.59, 579.479)
+p2 = Vector2(1593.81, 535.934)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-4"]
 position = Vector2(-141, -70)
 scale = Vector2(0.247834, 0.298544)
-points = PackedVector2Array(1250.84, 1075.22, 1452.59, 579.479, 1593.81, 535.934)
+points = PackedVector2Array(1250.84, 1075.22, 1452.59, 579.479)
 width = 50.0
 default_color = Color(0.862745, 0.0784314, 0.235294, 1)
 joint_mode = 2
@@ -109,39 +110,39 @@ end_cap_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/5-4"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
 
 [node name="4-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = null
 node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
-p2 = Vector2(1682.58, 907.739)
+node_b = 4
+p0 = Vector2(1452.59, 579.479)
+p1 = Vector2(2138.53, 649.82)
+p2 = Vector2(2138.53, 649.82)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/4-3"]
 position = Vector2(-139, -68)
 scale = Vector2(0.247834, 0.298544)
 points = PackedVector2Array(1452.59, 579.479, 2138.53, 649.82)
 width = 50.0
-default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+default_color = Color(0.117647, 0.564706, 1, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/4-3"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
 
-[node name="4-2" type="Area2D" parent="Hackenbush" groups=["edge"]]
+[node name="2-4" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = null
-node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
-p2 = Vector2(1682.58, 907.739)
+node_a = 4
+node_b = 2
+p0 = Vector2(2065.9, 904.389)
+p1 = Vector2(1440.48, 579.479)
+p2 = Vector2(1440.48, 579.479)
 
-[node name="Line2D" type="Line2D" parent="Hackenbush/4-2"]
+[node name="Line2D" type="Line2D" parent="Hackenbush/2-4"]
 position = Vector2(-134, -67)
 scale = Vector2(0.247834, 0.298544)
 points = PackedVector2Array(2065.9, 904.389, 1440.48, 579.479)
@@ -151,19 +152,19 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/4-2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/2-4"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
 
-[node name="3-2" type="Area2D" parent="Hackenbush" groups=["edge"]]
+[node name="1-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = null
 node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
-p2 = Vector2(1682.58, 907.739)
+node_b = 2
+p0 = Vector2(1734, 669)
+p1 = Vector2(1709, 519)
+p2 = Vector2(1709, 519)
 
-[node name="Line2D" type="Line2D" parent="Hackenbush/3-2"]
+[node name="Line2D" type="Line2D" parent="Hackenbush/1-3"]
 position = Vector2(-1318, -397)
 points = PackedVector2Array(1734, 669, 1709, 519)
 default_color = Color(0.117647, 0.564706, 1, 1)
@@ -171,32 +172,48 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/3-2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/1-3"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
 
 [node name="2-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("4_jyhfs")
 curved = null
 edge_color = "red"
-node_a = 3
-p0 = Vector2(1170.14, 1597.75)
-p1 = Vector2(1521.18, 1386.73)
-p2 = Vector2(1682.58, 907.739)
+node_a = 2
+p0 = Vector2(1513.11, 318.211)
+p1 = Vector2(1666.44, 542.634)
+p2 = Vector2(1666.44, 542.634)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/2-1"]
-position = Vector2(5, 110)
-scale = Vector2(0.247834, 0.298544)
-points = PackedVector2Array(1513.11, 318.211, 1666.44, 542.634)
-width = 50.0
-default_color = Color(0.117647, 0.564706, 1, 1)
+position = Vector2(-1136, -120)
+points = PackedVector2Array(1512, 317, 1559, 393)
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/2-1"]
 scale = Vector2(0.247834, 0.298544)
-polygon = PackedVector2Array(1180.9, 1614.61, 1227.75, 1584.69, 1272.88, 1552.33, 1316.28, 1517.55, 1357.95, 1480.36, 1397.88, 1440.76, 1436.08, 1398.76, 1472.53, 1354.37, 1507.25, 1307.59, 1540.22, 1258.43, 1571.45, 1206.9, 1600.95, 1153, 1628.71, 1096.74, 1654.74, 1038.12, 1679.05, 977.135, 1701.41, 914.46, 1663.74, 901.018, 1641.38, 963.693, 1617.59, 1023.3, 1592.16, 1080.5, 1565.08, 1135.29, 1536.37, 1187.69, 1506.02, 1237.69, 1474.03, 1285.29, 1440.42, 1330.52, 1405.18, 1373.36, 1368.3, 1413.84, 1329.8, 1451.94, 1289.66, 1487.7, 1247.88, 1521.1, 1204.46, 1552.17, 1159.38, 1580.89)
+
+[node name="Vertices" type="Node2D" parent="Hackenbush"]
+
+[node name="Vertex" parent="Hackenbush/Vertices" instance=ExtResource("4_tbgi4")]
+position = Vector2(292, 477)
+
+[node name="Vertex1" parent="Hackenbush/Vertices" instance=ExtResource("4_tbgi4")]
+position = Vector2(419, 268)
+
+[node name="Vertex2" parent="Hackenbush/Vertices" instance=ExtResource("4_tbgi4")]
+position = Vector2(376, 201)
+
+[node name="Vertex3" parent="Hackenbush/Vertices" instance=ExtResource("4_tbgi4")]
+position = Vector2(390, 120)
+
+[node name="Vertex4" parent="Hackenbush/Vertices" instance=ExtResource("4_tbgi4")]
+position = Vector2(223, 104)
+
+[node name="Vertex5" parent="Hackenbush/Vertices" instance=ExtResource("4_tbgi4")]
+position = Vector2(169, 252)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 322)
@@ -209,9 +226,9 @@ position = Vector2(576, 322)
 [connection signal="mouse_entered" from="Hackenbush/5-4" to="Hackenbush/5-4" method="_on_mouse_entered"]
 [connection signal="input_event" from="Hackenbush/4-3" to="Hackenbush/4-3" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/4-3" to="Hackenbush/4-3" method="_on_mouse_entered"]
-[connection signal="input_event" from="Hackenbush/4-2" to="Hackenbush/4-2" method="_on_input_event"]
-[connection signal="mouse_entered" from="Hackenbush/4-2" to="Hackenbush/4-2" method="_on_mouse_entered"]
-[connection signal="input_event" from="Hackenbush/3-2" to="Hackenbush/3-2" method="_on_input_event"]
-[connection signal="mouse_entered" from="Hackenbush/3-2" to="Hackenbush/3-2" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/2-4" to="Hackenbush/2-4" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/2-4" to="Hackenbush/2-4" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/1-3" to="Hackenbush/1-3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/1-3" to="Hackenbush/1-3" method="_on_mouse_entered"]
 [connection signal="input_event" from="Hackenbush/2-1" to="Hackenbush/2-1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/2-1" to="Hackenbush/2-1" method="_on_mouse_entered"]

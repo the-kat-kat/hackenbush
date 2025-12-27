@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gx1i8ev281o3"]
 
 [ext_resource type="Script" uid="uid://b8leppw7j5n0k" path="res://vertex.gd" id="1_qio6b"]
-[ext_resource type="Texture2D" uid="uid://dfovflh124lr5" path="res://images/heart.png" id="2_h42fs"]
+[ext_resource type="Texture2D" uid="uid://c057o4co567r5" path="res://images/circle.png" id="2_h42fs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h42fs"]
 
@@ -14,5 +14,5 @@ script = ExtResource("1_qio6b")
 shape = SubResource("CircleShape2D_h42fs")
 
 [node name="Circle" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_h42fs")
