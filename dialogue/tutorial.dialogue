@@ -1,11 +1,9 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is the tutorial
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Kat: Hackenbush is a combinatorial game, a game played
+between two players with a winning strategy.
+Kook: The goal of the game is to be the last one who can make a viable move. 
+Players alternate turns, breaking a stick of their color on their turn. 
+Kat: If a stick is no longer connected to the ground in anyway, it will also break.
+Kook: Let's look at a demo game between me at Kat
+do GameManager.demo_now.emit()
 => END

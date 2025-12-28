@@ -57,6 +57,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0.959222, 0.882921, 0.728923, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 5
@@ -113,7 +114,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.101961)
 [node name="Hackenbush" type="Node2D" parent="." node_paths=PackedStringArray("vertices_holder")]
 position = Vector2(258, 7)
 script = ExtResource("5_g2equ")
-vertices_holder = NodePath("Vertices")
+vertices_holder = NodePath("../Vertices")
 
 [node name="0-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("6_tbcdj")
@@ -264,24 +265,25 @@ end_cap_mode = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/2-1"]
 scale = Vector2(0.247834, 0.298544)
 
-[node name="Vertices" type="Node2D" parent="Hackenbush"]
+[node name="Vertices" type="Node2D" parent="."]
+position = Vector2(258, 7)
 
-[node name="Vertex" parent="Hackenbush/Vertices" instance=ExtResource("7_ej4tf")]
+[node name="Vertex" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(292, 477)
 
-[node name="Vertex1" parent="Hackenbush/Vertices" instance=ExtResource("7_ej4tf")]
+[node name="Vertex1" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(419, 268)
 
-[node name="Vertex2" parent="Hackenbush/Vertices" instance=ExtResource("7_ej4tf")]
+[node name="Vertex2" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(376, 201)
 
-[node name="Vertex3" parent="Hackenbush/Vertices" instance=ExtResource("7_ej4tf")]
+[node name="Vertex3" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(390, 120)
 
-[node name="Vertex4" parent="Hackenbush/Vertices" instance=ExtResource("7_ej4tf")]
+[node name="Vertex4" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(223, 104)
 
-[node name="Vertex5" parent="Hackenbush/Vertices" instance=ExtResource("7_ej4tf")]
+[node name="Vertex5" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(169, 252)
 
 [node name="Camera2D" type="Camera2D" parent="."]

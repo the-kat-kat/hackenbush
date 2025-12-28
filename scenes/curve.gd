@@ -59,7 +59,6 @@ func draw_curve():
 				var t = float(i) / resolution
 				var point = _quadratic_bezier(t)
 				line.add_point(point)
-				print("pt", t, " hi ", point)
 			setup()
 		else:
 			line.add_point(p0)
@@ -96,7 +95,6 @@ func setup():
 		
 		var normal = Vector2(-dir.y, dir.x) * thickness
 		points_top.append(p + normal)
-		print("points", p)
 		points_bottom.insert(0, p - normal)
 		
 	collision.polygon = points_top + points_bottom
@@ -110,5 +108,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			return
 		GameManager.inc_player()
 		get_parent().handle_cut(self)
+		
+func cut_stick():
+	if (GameManager.current_player == 1 and edge_color == "blue") or (GameManager.current_player == 2 and edge_color == "red"):
+		print("wrong color")
+		return
+	GameManager.inc_player()
+	get_parent().handle_cut(self)
+		
+func not_chosen():
+	line.default_color = edge_color
+	line.default_color = line.default_color.darkened(0.4)
+	
+func chosen():
+	line.default_color = edge_color
 
 	

@@ -1,6 +1,7 @@
 extends Node
 
 signal player_switched(new_player_index: int)
+signal demo_now()
 
 var player_1_points: int = 0
 var player_2_points: int = 0
@@ -24,3 +25,7 @@ func inc_player():
 		current_player = 1
 		
 	player_switched.emit(current_player)
+	
+func start_demo():
+	print("start demo")
+	demo_now.emit()
