@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://8swf45kkxbso"]
+[gd_scene load_steps=10 format=3 uid="uid://8swf45kkxbso"]
 
 [ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/game_manager.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dqbvkijcabsh5" path="res://scenes/ui.gd" id="2_o6xl0"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="2_tefeu"]
 [ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="4_jyhfs"]
@@ -26,6 +27,7 @@ script = ExtResource("1_sugp2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+script = ExtResource("2_o6xl0")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -41,31 +43,35 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Player1" type="Label" parent="CanvasLayer"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 172.0
-offset_bottom = 82.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -524.0
+offset_right = 525.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/separation = 700
+alignment = 1
+
+[node name="Player1" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_tefeu")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("3_o6xl0")
 text = "Player 1"
+horizontal_alignment = 1
 
-[node name="Player2" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -172.0
-offset_top = 60.0
-offset_right = -50.0
-offset_bottom = 92.0
-grow_horizontal = 0
+[node name="Player2" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_tefeu")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
 text = "Player 2"
+horizontal_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -256,7 +262,7 @@ position = Vector2(223, 104)
 position = Vector2(169, 252)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 322)
+position = Vector2(576, 325)
 
 [connection signal="input_event" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_mouse_entered"]

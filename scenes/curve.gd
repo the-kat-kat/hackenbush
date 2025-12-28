@@ -82,7 +82,7 @@ func setup_line():
 	
 func setup():
 	collision.polygon = PackedVector2Array()
-	var thickness = 20.0 
+	var thickness = 10.0 
 	var points_top = []
 	var points_bottom = []
 	
@@ -106,9 +106,9 @@ func setup():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if (GameManager.current_player == 1 and edge_color == "blue") or (GameManager.current_player == 2 and edge_color == "red"):
-			print("rwrong color")
+			print("wrong color")
 			return
-		get_parent().handle_cut(self)
 		GameManager.inc_player()
+		get_parent().handle_cut(self)
 
 	

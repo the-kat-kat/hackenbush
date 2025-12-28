@@ -1,10 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://0lfkukbsr71a"]
+[gd_scene load_steps=10 format=3 uid="uid://0lfkukbsr71a"]
 
 [ext_resource type="FontFile" uid="uid://bvxrs7qlk6sfc" path="res://fonts/RoyalBrand-Regular.otf" id="1_tx5wa"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="2_hm208"]
 [ext_resource type="StyleBox" uid="uid://8ca7qiwflvuv" path="res://scenes/hover_button.tres" id="3_5pab1"]
-[ext_resource type="StyleBox" uid="uid://dru0rdi5oviai" path="res://scenes/pressed_button.tres" id="4_o30b1"]
-[ext_resource type="StyleBox" uid="uid://dc17muhajce21" path="res://scenes/normal_button.tres" id="5_ka6nf"]
+[ext_resource type="Script" uid="uid://y1xwx2nt08ia" path="res://scenes/start.gd" id="3_o30b1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka6nf"]
+bg_color = Color(0, 0.333229, 0.764506, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws7p0"]
+bg_color = Color(0.972125, 5.70349e-06, 9.62615e-07, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecdxc"]
+bg_color = Color(0, 0.403922, 0.913725, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2jwc"]
+bg_color = Color(0, 0.403922, 0.913725, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hm208"]
+bg_color = Color(0.972125, 5.70349e-06, 9.62615e-07, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -58,10 +92,11 @@ custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hm208")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = ExtResource("3_5pab1")
-theme_override_styles/pressed = ExtResource("4_o30b1")
-theme_override_styles/normal = ExtResource("5_ka6nf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ka6nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ws7p0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ecdxc")
 text = "Start"
+script = ExtResource("3_o30b1")
 
 [node name="HowToPlay" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(0, 70)
@@ -69,6 +104,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hm208")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = ExtResource("3_5pab1")
-theme_override_styles/pressed = ExtResource("4_o30b1")
-theme_override_styles/normal = ExtResource("5_ka6nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r2jwc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hm208")
 text = "How to Play"
+
+[connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]

@@ -30,5 +30,5 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if (GameManager.current_player == 1 and edge_color == "blue") or (GameManager.current_player == 2 and edge_color == "red"):
 			print("rwrong color")
 			return
-		get_parent().handle_cut(self)
 		GameManager.inc_player()
+		get_parent().handle_cut(self)
