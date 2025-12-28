@@ -89,8 +89,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
 text = "Player 2"
 horizontal_alignment = 1
 
-[node name="Character1" type="AnimatedSprite2D" parent="."]
+[node name="Kat" type="AnimatedSprite2D" parent="."]
 position = Vector2(192, 243)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_g2equ")
+script = ExtResource("6_0epgs")
+dialogue_resource = ExtResource("7_0epgs")
+dialogue_start = "start"
+
+[node name="Kook" type="AnimatedSprite2D" parent="."]
+position = Vector2(956, 245)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_g2equ")
 script = ExtResource("6_0epgs")
@@ -266,7 +274,7 @@ end_cap_mode = 2
 scale = Vector2(0.247834, 0.298544)
 
 [node name="Vertices" type="Node2D" parent="."]
-position = Vector2(258, 7)
+position = Vector2(258, 6)
 
 [node name="Vertex" parent="Vertices" instance=ExtResource("7_ej4tf")]
 position = Vector2(292, 477)

@@ -1,9 +1,19 @@
 ~ start
-Kat: Hackenbush is a combinatorial game, a game played
-between two players with a winning strategy.
-Kook: The goal of the game is to be the last one who can make a viable move. 
-Players alternate turns, breaking a stick of their color on their turn. 
-Kat: If a stick is no longer connected to the ground in anyway, it will also break.
-Kook: Let's look at a demo game between me at Kat
-do GameManager.demo_now.emit()
+Kat: Hackenbush is a combinatorial game, a game played between two players with a winning strategy.
+Kook: The goal of the game is to be the last one who can make a viable move. Players alternate turns, breaking a stick of their color on their turn. 
+Kat: If a stick is no longer connected to the ground in any way, it will also break. Let's look at a demo game between me at Kat
+Kook: I'm red so I'll choose a red stick
+do select_edge(6)
+Kook: Now I'll cut it
+do cut_stick(6)
+Kat: I'm blue so I'll chooes a blue stick
+do select_edge(3)
+Kat: Now I'll cut it
+do cut_stick(3)
+Kook: I'll cut another red one
+do select_edge(2)
+do wait_1_sec()
+do cut_stick(2)
 => END
+
+~ first_cut 

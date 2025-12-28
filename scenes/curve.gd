@@ -33,6 +33,14 @@ func _quadratic_bezier(t: float) -> Vector2:
 	var q0 = p0.lerp(p1, t)
 	var q1 = p1.lerp(p2, t)
 	return q0.lerp(q1, t)
+	
+func color_line():
+	if edge_color == "blue": 
+		line.default_color = Color.DODGER_BLUE
+	elif edge_color == "red": 
+		line.default_color = Color.CRIMSON
+	else: 
+		line.default_color = Color.PALE_GREEN
 
 func draw_curve():
 	if not line:
@@ -40,12 +48,7 @@ func draw_curve():
 		
 	line.clear_points()
 		
-	if edge_color == "blue": 
-		line.default_color = Color.DODGER_BLUE
-	elif edge_color == "red": 
-		line.default_color = Color.CRIMSON
-	else: 
-		line.default_color = Color.PALE_GREEN
+	color_line()
 		
 	if Engine.is_editor_hint():
 		line.clear_points()
@@ -66,12 +69,7 @@ func draw_curve():
 			setup()
 			
 func setup_line():
-	if edge_color == "blue": 
-		line.default_color = Color.DODGER_BLUE
-	elif edge_color == "red": 
-		line.default_color = Color.CRIMSON
-	else: 
-		line.default_color = Color.PALE_GREEN
+	color_line()
 	
 	if line.points.size() >= 2:
 		var shape = SegmentShape2D.new()
@@ -117,10 +115,10 @@ func cut_stick():
 	get_parent().handle_cut(self)
 		
 func not_chosen():
-	line.default_color = edge_color
-	line.default_color = line.default_color.darkened(0.4)
+	color_line()
+	line.default_color = line.default_color.darkened(0.7)
 	
 func chosen():
-	line.default_color = edge_color
+	color_line()
 
 	
