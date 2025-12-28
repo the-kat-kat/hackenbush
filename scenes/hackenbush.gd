@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var vertices_holder: Node2D
-var vertices: Array[Node] 
+var vertices: Array[Node]
 
 var graph = {}
 var node_graph= {}

@@ -90,6 +90,7 @@ theme_override_constants/separation = 40
 [node name="Start" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_hm208")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_ka6nf")
@@ -101,6 +102,7 @@ script = ExtResource("3_o30b1")
 [node name="HowToPlay" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_hm208")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = ExtResource("3_5pab1")
@@ -109,3 +111,4 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hm208")
 text = "How to Play"
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/HowToPlay" to="Buttons/Start" method="_on_how_to_play_pressed"]
