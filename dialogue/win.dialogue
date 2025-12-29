@@ -1,0 +1,9 @@
+~ player_1
+Kat: Woah player 1 won!
+do go_levels()
+=> END
+
+~ player_2
+Kat: Woah player 2 won!
+do go_levels()
+=> END

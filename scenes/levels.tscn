@@ -1,18 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvqxqdv3u188g"]
+[gd_scene load_steps=7 format=3 uid="uid://cvqxqdv3u188g"]
 
 [ext_resource type="Script" uid="uid://dg58p4pc65b7m" path="res://levels.gd" id="1_5ekxl"]
-[ext_resource type="Script" uid="uid://dqbvkijcabsh5" path="res://scenes/ui.gd" id="2_ly2og"]
 [ext_resource type="Texture2D" uid="uid://dfovflh124lr5" path="res://images/heart.png" id="3_jj4e6"]
+[ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="3_ly2og"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="4_ly2og"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj4e6"]
+bg_color = Color(0.113725, 0.564706, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jj4e6"]
 
-[node name="Levels" type="Node2D"]
+[node name="Levels" type="Node2D" node_paths=PackedStringArray("player_1_label", "player_2_label")]
 script = ExtResource("1_5ekxl")
+player_1_label = NodePath("CanvasLayer/HBoxContainer/Player1")
+player_2_label = NodePath("CanvasLayer/HBoxContainer/Player2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
-script = ExtResource("2_ly2og")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -30,6 +42,36 @@ mouse_filter = 2
 color = Color(0.959222, 0.882921, 0.728923, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -524.0
+offset_right = 525.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/separation = 700
+alignment = 1
+
+[node name="Player1" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ly2og")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_ly2og")
+text = "Player 1: 0"
+horizontal_alignment = 1
+
+[node name="Player2" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ly2og")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jj4e6")
+text = "Player 2: 0"
+horizontal_alignment = 1
+
 [node name="GridContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(50, 50)
 offset_left = 69.0
@@ -40,7 +82,7 @@ theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
 columns = 3
 
-[node name="Button" type="Button" parent="GridContainer"]
+[node name="Level1" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
@@ -48,7 +90,7 @@ icon = ExtResource("3_jj4e6")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Button"]
+[node name="Label" type="Label" parent="GridContainer/Level1"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -66,7 +108,7 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="GridContainer"]
+[node name="Level2" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
@@ -74,7 +116,7 @@ icon = ExtResource("3_jj4e6")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Button2"]
+[node name="Label" type="Label" parent="GridContainer/Level2"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -92,7 +134,7 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="GridContainer"]
+[node name="Level3" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
@@ -100,7 +142,7 @@ icon = ExtResource("3_jj4e6")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Button3"]
+[node name="Label" type="Label" parent="GridContainer/Level3"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -118,7 +160,7 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button4" type="Button" parent="GridContainer"]
+[node name="Level4" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
@@ -126,7 +168,7 @@ icon = ExtResource("3_jj4e6")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Button4"]
+[node name="Label" type="Label" parent="GridContainer/Level4"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -144,7 +186,7 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button5" type="Button" parent="GridContainer"]
+[node name="Level5" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
@@ -152,7 +194,7 @@ icon = ExtResource("3_jj4e6")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Button5"]
+[node name="Label" type="Label" parent="GridContainer/Level5"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -170,7 +212,7 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button6" type="Button" parent="GridContainer"]
+[node name="Level6" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
@@ -178,7 +220,7 @@ icon = ExtResource("3_jj4e6")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Button6"]
+[node name="Label" type="Label" parent="GridContainer/Level6"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -196,9 +238,9 @@ text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GridContainer/Button3" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GridContainer/Button4" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GridContainer/Button5" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GridContainer/Button6" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="GridContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="GridContainer/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="GridContainer/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="GridContainer/Level6" to="." method="_on_level_6_pressed"]

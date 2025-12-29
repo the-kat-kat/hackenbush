@@ -1,15 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://caijv470kytbb"]
+[gd_scene load_steps=20 format=3 uid="uid://caijv470kytbb"]
 
 [ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/game_manager.gd" id="1_gbqnl"]
 [ext_resource type="Script" uid="uid://dqbvkijcabsh5" path="res://scenes/ui.gd" id="2_ckvwl"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="3_nlqja"]
 [ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="4_0epgs"]
+[ext_resource type="Texture2D" uid="uid://d4enrtcexhfdy" path="res://images/kat.png" id="5_ej4tf"]
 [ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="5_g2equ"]
-[ext_resource type="Texture2D" uid="uid://dfovflh124lr5" path="res://images/heart.png" id="5_nlqja"]
 [ext_resource type="Script" uid="uid://bhnd3ww6cmtao" path="res://scenes/guide.gd" id="6_0epgs"]
+[ext_resource type="Texture2D" uid="uid://b4sdb1j8es8ra" path="res://images/kook.png" id="6_0hilk"]
 [ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="6_tbcdj"]
 [ext_resource type="Resource" uid="uid://v22wrieuxlpg" path="res://dialogue/tutorial.dialogue" id="7_0epgs"]
 [ext_resource type="PackedScene" uid="uid://gx1i8ev281o3" path="res://scenes/vertex.tscn" id="7_ej4tf"]
+[ext_resource type="StyleBox" uid="uid://dc17muhajce21" path="res://scenes/normal_button.tres" id="11_tbcdj"]
+[ext_resource type="Script" uid="uid://molkcnyowubm" path="res://scenes/return_home.gd" id="12_ej4tf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
 bg_color = Color(0.113725, 0.564706, 1, 1)
@@ -26,7 +29,21 @@ expand_margin_bottom = 10.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_nlqja")
+"texture": ExtResource("5_ej4tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0hilk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wr8iv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0hilk")
 }],
 "loop": true,
 "name": &"default",
@@ -35,6 +52,28 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1219, 185)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hilk"]
+bg_color = Color(0.705886, 0.705887, 0.705886, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr8iv"]
+bg_color = Color(0.261113, 0.261113, 0.261112, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gbqnl")
@@ -89,21 +128,19 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
 text = "Player 2"
 horizontal_alignment = 1
 
-[node name="Kat" type="AnimatedSprite2D" parent="."]
-position = Vector2(192, 243)
-scale = Vector2(0.3, 0.3)
+[node name="Kat" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("end_button")]
+position = Vector2(160, 376)
+scale = Vector2(0.536473, 0.508548)
 sprite_frames = SubResource("SpriteFrames_g2equ")
 script = ExtResource("6_0epgs")
 dialogue_resource = ExtResource("7_0epgs")
 dialogue_start = "start"
+end_button = NodePath("../Control")
 
 [node name="Kook" type="AnimatedSprite2D" parent="."]
-position = Vector2(956, 245)
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_g2equ")
-script = ExtResource("6_0epgs")
-dialogue_resource = ExtResource("7_0epgs")
-dialogue_start = "start"
+position = Vector2(920, 368)
+scale = Vector2(0.594444, 0.582381)
+sprite_frames = SubResource("SpriteFrames_wr8iv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -147,8 +184,7 @@ scale = Vector2(0.247834, 0.298544)
 script = ExtResource("6_tbcdj")
 curved = true
 edge_color = "red"
-node_a = 5
-node_b = 0
+node_b = 5
 p0 = Vector2(1735.03, 1832.23)
 p1 = Vector2(1448.55, 1641.3)
 p2 = Vector2(1258.91, 1081.92)
@@ -192,8 +228,8 @@ scale = Vector2(0.247834, 0.298544)
 [node name="4-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("6_tbcdj")
 curved = null
-node_a = 3
-node_b = 4
+node_a = 4
+node_b = 3
 p0 = Vector2(1452.59, 579.479)
 p1 = Vector2(2138.53, 649.82)
 p2 = Vector2(2138.53, 649.82)
@@ -214,8 +250,8 @@ scale = Vector2(0.247834, 0.298544)
 [node name="2-4" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("6_tbcdj")
 curved = null
-node_a = 4
-node_b = 2
+node_a = 2
+node_b = 4
 p0 = Vector2(2065.9, 904.389)
 p1 = Vector2(1440.48, 579.479)
 p2 = Vector2(1440.48, 579.479)
@@ -236,8 +272,8 @@ scale = Vector2(0.247834, 0.298544)
 [node name="1-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("6_tbcdj")
 curved = null
-node_a = 3
-node_b = 2
+node_a = 1
+node_b = 3
 p0 = Vector2(1734, 669)
 p1 = Vector2(1709, 519)
 p2 = Vector2(1709, 519)
@@ -295,7 +331,45 @@ position = Vector2(223, 104)
 position = Vector2(169, 252)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 325)
+position = Vector2(576, 324)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72549)
+
+[node name="End" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -25.0
+offset_right = 207.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nlqja")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_0hilk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wr8iv")
+theme_override_styles/normal = ExtResource("11_tbcdj")
+text = "Return to Home"
+script = ExtResource("12_ej4tf")
 
 [connection signal="input_event" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_mouse_entered"]
@@ -311,3 +385,4 @@ position = Vector2(576, 325)
 [connection signal="mouse_entered" from="Hackenbush/1-3" to="Hackenbush/1-3" method="_on_mouse_entered"]
 [connection signal="input_event" from="Hackenbush/2-1" to="Hackenbush/2-1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/2-1" to="Hackenbush/2-1" method="_on_mouse_entered"]
+[connection signal="pressed" from="Control/End" to="Control/End" method="_on_pressed"]

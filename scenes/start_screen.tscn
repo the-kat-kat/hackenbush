@@ -96,7 +96,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_ka6nf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ws7p0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ecdxc")
-text = "Start"
+text = "Play"
 script = ExtResource("3_o30b1")
 
 [node name="HowToPlay" type="Button" parent="Buttons"]
@@ -108,7 +108,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = ExtResource("3_5pab1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_r2jwc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hm208")
-text = "How to Play"
+text = "Tutorial"
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/HowToPlay" to="Buttons/Start" method="_on_how_to_play_pressed"]

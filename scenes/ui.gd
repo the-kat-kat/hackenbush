@@ -14,6 +14,7 @@ func player_reset():
 	player_2_label.scale = Vector2(1,1)
 
 func _on_player_switched(new_player_index: int):
+	print("player switched", new_player_index)
 	if new_player_index == 2:
 		player_2_label.scale = Vector2(1.5,1.5)
 		player_2_label.pivot_offset = player_2_label.size/2

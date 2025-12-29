@@ -14,6 +14,16 @@ Kook: I'll cut another red one
 do select_edge(2)
 do wait_1_sec()
 do cut_stick(2)
+Kook: Notice how the other stick fell as well since it was no longer connected.
+Kat: Let's continue the game to see the winner
+do select_edge(0)
+do wait_1_sec()
+do cut_stick(0)
+do wait_1_sec()
+do select_edge(1)
+do wait_1_sec()
+do cut_stick(1)
+Kook: Yay, I was the last one able to cut a stick so I win!
+do end_tutorial()
 => END
 
-~ first_cut 

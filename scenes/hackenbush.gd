@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var dialogue_resource: DialogueResource
+@export var dialogue_start: String
+
 @export var vertices_holder: Node2D
 var vertices: Array[Node]
 
@@ -32,7 +35,7 @@ func handle_cut(edge_node: Node2D):
 	
 	node_graph[a].erase(b)
 	node_graph[b].erase(a)
-						
+	
 	graph.erase(edge_node)
 	edge_node.queue_free()
 	
@@ -73,4 +76,14 @@ func check_floating_edges():
 				graph.erase(edge)
 				
 					
-	
+	if graph.size() == 0:
+		if GameManager.current_player == 1:
+			GameManager.player_1_total_points +=1
+			DialogueManager.show_example_dialogue_balloon(dialogue_resource, "player_1")
+		elif GameManager.current_player == 2:
+			GameManager.player_2_total_points +=1
+			DialogueManager.show_example_dialogue_balloon(dialogue_resource, "player_2")
+		GameManager.update_levels_points()
+	else:
+		print("inc")
+		GameManager.inc_player()

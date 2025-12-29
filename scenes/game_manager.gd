@@ -2,7 +2,13 @@ extends Node
 
 signal player_switched(new_player_index: int)
 signal demo_now()
+signal update_points()
 
+#total
+var player_1_total_points: int = 0
+var player_2_total_points: int = 0
+
+#per game
 var player_1_points: int = 0
 var player_2_points: int = 0
 
@@ -23,9 +29,15 @@ func inc_player():
 		current_player = 2
 	else:
 		current_player = 1
-		
 	player_switched.emit(current_player)
+		
 	
 func start_demo():
 	print("start demo")
 	demo_now.emit()
+	
+func go_levels():
+	get_tree().change_scene_to_file("res://scenes/levels.tscn")
+	
+func update_levels_points():
+	update_points.emit()

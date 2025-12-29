@@ -2,24 +2,23 @@ extends AnimatedSprite2D
 
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String
+@export var end_button: Control
 
 @onready var edges: Array[Node] = get_parent().get_node("Hackenbush").get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.demo_now.connect(demo)
+	end_button.visible = false
 	start_dialogue()
 
 func start_dialogue():
 	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start, [self])
 
-func demo():
+func demo_not_used():
 	# cut 2-1 / index 6
 	select_edge(6)
 			
 	print("cut 6")
-	
-	DialogueManager.show_example_dialogue_balloon(dialogue_resource, "first_cut", [self])
 	
 	edges[6].cut_stick()
 	# cut 4-3 / index 3
@@ -55,3 +54,6 @@ func cut_stick(index: int):
 
 func wait_1_sec():
 	await get_tree().create_timer(1).timeout
+	
+func end_tutorial():
+	end_button.visible = true

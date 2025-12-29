@@ -1,0 +1,570 @@
+[gd_scene load_steps=11 format=3 uid="uid://baevqeauxqimi"]
+
+[ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/game_manager.gd" id="1_hrcei"]
+[ext_resource type="Script" uid="uid://dqbvkijcabsh5" path="res://scenes/ui.gd" id="2_xa7n4"]
+[ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="3_bo4dx"]
+[ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="4_76toy"]
+[ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="5_8g4ke"]
+[ext_resource type="Resource" uid="uid://bpriehwalvx1a" path="res://dialogue/win.dialogue" id="6_56gwk"]
+[ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="7_ve5ok"]
+[ext_resource type="PackedScene" uid="uid://gx1i8ev281o3" path="res://scenes/vertex.tscn" id="8_cleqw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+bg_color = Color(0.113725, 0.564706, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(1219, 185)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_hrcei")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+script = ExtResource("2_xa7n4")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -396.0
+offset_top = -298.0
+offset_right = 368.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.396889, 0.396889, 0.396889, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -524.0
+offset_right = 525.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/separation = 700
+alignment = 1
+
+[node name="Player1" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bo4dx")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_76toy")
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="Player2" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bo4dx")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
+text = "Player 2"
+horizontal_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -9.0
+offset_top = 483.0
+offset_right = 1183.0
+offset_bottom = 659.0
+color = Color(0.811968, 0.819782, 0.861055, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(599.5, 577.5)
+shape = SubResource("RectangleShape2D_0wfyh")
+debug_color = Color(0, 0.6, 0.701961, 0.101961)
+
+[node name="Hackenbush" type="Node2D" parent="." node_paths=PackedStringArray("vertices_holder")]
+position = Vector2(224, 0)
+script = ExtResource("5_8g4ke")
+dialogue_resource = ExtResource("6_56gwk")
+vertices_holder = NodePath("../Vertices")
+
+[node name="0-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+p0 = Vector2(1266, 1380)
+p1 = Vector2(1267, 1230)
+p2 = Vector2(1267, 1230)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/0-1"]
+position = Vector2(-890, -898)
+points = PackedVector2Array(1266, 1380, 1266, 1233)
+width = 15.0
+default_color = Color(0.117647, 0.564706, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/0-1"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="2-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_a = 2
+p0 = Vector2(1599, 1151)
+p1 = Vector2(1558, 1222)
+p2 = Vector2(1469, 1201)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/2-1"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1599, 1151, 1558, 1222, 1469, 1201)
+width = 15.0
+default_color = Color(0.117647, 0.564706, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/2-1"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="1-2" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 1
+node_b = 2
+p0 = Vector2(1644, 551)
+p1 = Vector2(1693, 479)
+p2 = Vector2(1778, 499)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/1-2"]
+position = Vector2(-1268, -217)
+points = PackedVector2Array(1644, 551, 1693, 479, 1778, 499)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/1-2"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="5-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = null
+edge_color = "red"
+node_a = 5
+p0 = Vector2(1624, 417)
+p1 = Vector2(1620, 551)
+p2 = Vector2(1620, 551)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/5-1"]
+position = Vector2(-1246, -215)
+points = PackedVector2Array(1622, 415, 1623, 551)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/5-1"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="1-4" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 1
+node_b = 4
+p0 = Vector2(1326, 1155)
+p1 = Vector2(1386, 1219)
+p2 = Vector2(1469, 1201)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/1-4"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1466, 1204, 1386, 1219, 1330, 1156)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/1-4"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="3-5" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_a = 3
+node_b = 5
+p0 = Vector2(1632, 1013)
+p1 = Vector2(1555, 1064)
+p2 = Vector2(1470, 1062)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/3-5"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1632, 1013, 1555, 1064, 1466, 1067)
+width = 15.0
+default_color = Color(0.117647, 0.564706, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/3-5"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="5-8" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 5
+node_b = 8
+p0 = Vector2(1299, 1015)
+p1 = Vector2(1370, 1063)
+p2 = Vector2(1465, 1063)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/5-8"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1466, 1068, 1370, 1063, 1297, 1011)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/5-8"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="8-5" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_a = 8
+node_b = 5
+p0 = Vector2(1301, 1014)
+p1 = Vector2(1379, 1017)
+p2 = Vector2(1469, 1063)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/8-5"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1297, 1011, 1379, 1017, 1468, 1062)
+width = 15.0
+default_color = Color(0.117647, 0.564706, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/8-5"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="5-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 5
+node_b = 3
+p0 = Vector2(1630, 1013)
+p1 = Vector2(1544, 1016)
+p2 = Vector2(1467, 1065)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/5-3"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1466, 1066, 1544, 1016, 1634, 1011)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/5-3"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="4-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_a = 4
+p0 = Vector2(1326, 1157)
+p1 = Vector2(1412, 1131)
+p2 = Vector2(1469, 1201)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/4-1"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1326, 1157, 1412, 1131, 1469, 1201)
+width = 15.0
+default_color = Color(0.117647, 0.564706, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/4-1"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="6-5" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 6
+node_b = 5
+p0 = Vector2(1533, 914)
+p1 = Vector2(1530, 986)
+p2 = Vector2(1467, 1065)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/6-5"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1533, 914, 1530, 986, 1467, 1065)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/6-5"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="5-6" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 5
+node_b = 6
+p0 = Vector2(1533, 914)
+p1 = Vector2(1484, 969)
+p2 = Vector2(1467, 1065)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/5-6"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1465, 1067, 1484, 969, 1530, 915)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/5-6"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="7-5" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 7
+node_b = 5
+p0 = Vector2(1413, 908)
+p1 = Vector2(1454, 966)
+p2 = Vector2(1467, 1065)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/7-5"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1410, 908, 1454, 966, 1465, 1067)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/7-5"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="5-7" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 5
+node_b = 7
+p0 = Vector2(1413, 908)
+p1 = Vector2(1409, 987)
+p2 = Vector2(1467, 1065)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/5-7"]
+position = Vector2(-1090, -867)
+points = PackedVector2Array(1466, 1068, 1409, 987, 1410, 907)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/5-7"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="0-8" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_b = 8
+p0 = Vector2(1266, 1380)
+p1 = Vector2(1061, 1259)
+p2 = Vector2(1061, 1259)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/0-8"]
+position = Vector2(-890, -898)
+points = PackedVector2Array(1266, 1380, 1061, 1259, 1099, 1048)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/0-8"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="0-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_b = 3
+p0 = Vector2(1266, 1380)
+p1 = Vector2(1472, 1256)
+p2 = Vector2(1431, 1044)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/0-3"]
+position = Vector2(-890, -898)
+points = PackedVector2Array(1266, 1380, 1472, 1256, 1434, 1043)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/0-3"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="6-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_a = 6
+node_b = 3
+p0 = Vector2(1266, 1380)
+p1 = Vector2(1472, 1256)
+p2 = Vector2(1431, 1044)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/6-3"]
+position = Vector2(-890, -898)
+points = PackedVector2Array(1330, 946, 1397, 985, 1434, 1042)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/6-3"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="7-6" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+edge_color = "red"
+node_a = 7
+node_b = 6
+p0 = Vector2(1266, 1380)
+p1 = Vector2(1472, 1256)
+p2 = Vector2(1431, 1044)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/7-6"]
+position = Vector2(-890, -898)
+points = PackedVector2Array(1213, 938, 1272, 931, 1330, 946)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/7-6"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="7-8" type="Area2D" parent="Hackenbush" groups=["edge"]]
+script = ExtResource("7_ve5ok")
+curved = true
+node_a = 7
+node_b = 8
+p0 = Vector2(1213, 938)
+p1 = Vector2(1272, 931)
+p2 = Vector2(1334, 945)
+
+[node name="Line2D" type="Line2D" parent="Hackenbush/7-8"]
+position = Vector2(-890, -898)
+points = PackedVector2Array(1210, 939, 1143, 977, 1099, 1041)
+width = 15.0
+default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hackenbush/7-8"]
+scale = Vector2(0.247834, 0.298544)
+
+[node name="Vertices" type="Node2D" parent="."]
+position = Vector2(258, 7)
+
+[node name="Vertex" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(342, 473)
+
+[node name="Vertex1" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(342, 329)
+
+[node name="Vertex2" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(478, 273)
+
+[node name="Vertex3" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(510, 137)
+
+[node name="Vertex4" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(206, 281)
+
+[node name="Vertex5" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(342, 193)
+
+[node name="Vertex6" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(406, 41)
+
+[node name="Vertex7" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(286, 33)
+
+[node name="Vertex8" parent="Vertices" instance=ExtResource("8_cleqw")]
+position = Vector2(174, 137)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
+
+[connection signal="input_event" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/2-1" to="Hackenbush/2-1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/2-1" to="Hackenbush/2-1" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/1-2" to="Hackenbush/1-2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/1-2" to="Hackenbush/1-2" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/5-1" to="Hackenbush/5-1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/5-1" to="Hackenbush/5-1" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/1-4" to="Hackenbush/1-4" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/1-4" to="Hackenbush/1-4" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/3-5" to="Hackenbush/3-5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/3-5" to="Hackenbush/3-5" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/5-8" to="Hackenbush/5-8" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/5-8" to="Hackenbush/5-8" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/8-5" to="Hackenbush/8-5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/8-5" to="Hackenbush/8-5" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/5-3" to="Hackenbush/5-3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/5-3" to="Hackenbush/5-3" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/4-1" to="Hackenbush/4-1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/4-1" to="Hackenbush/4-1" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/6-5" to="Hackenbush/6-5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/6-5" to="Hackenbush/6-5" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/5-6" to="Hackenbush/5-6" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/5-6" to="Hackenbush/5-6" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/7-5" to="Hackenbush/7-5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/7-5" to="Hackenbush/7-5" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/5-7" to="Hackenbush/5-7" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/5-7" to="Hackenbush/5-7" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/0-8" to="Hackenbush/0-8" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/0-8" to="Hackenbush/0-8" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/0-3" to="Hackenbush/0-3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/0-3" to="Hackenbush/0-3" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/6-3" to="Hackenbush/6-3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/6-3" to="Hackenbush/6-3" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/7-6" to="Hackenbush/7-6" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/7-6" to="Hackenbush/7-6" method="_on_mouse_entered"]
+[connection signal="input_event" from="Hackenbush/7-8" to="Hackenbush/7-8" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hackenbush/7-8" to="Hackenbush/7-8" method="_on_mouse_entered"]
