@@ -4,7 +4,7 @@ extends AnimatedSprite2D
 @export var dialogue_start: String
 @export var end_button: Control
 
-@onready var edges: Array[Node] = get_parent().get_node("Hackenbush").get_children()
+@onready var edges: Array[Node] = get_parent().get_parent().get_node("Hackenbush").get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

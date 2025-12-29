@@ -128,16 +128,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
 text = "Player 2"
 horizontal_alignment = 1
 
-[node name="Kat" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("end_button")]
+[node name="Kat" type="AnimatedSprite2D" parent="CanvasLayer" node_paths=PackedStringArray("end_button")]
 position = Vector2(160, 376)
 scale = Vector2(0.536473, 0.508548)
 sprite_frames = SubResource("SpriteFrames_g2equ")
 script = ExtResource("6_0epgs")
 dialogue_resource = ExtResource("7_0epgs")
 dialogue_start = "start"
-end_button = NodePath("../Control")
+end_button = NodePath("../../Control")
 
-[node name="Kook" type="AnimatedSprite2D" parent="."]
+[node name="Kook" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(920, 368)
 scale = Vector2(0.594444, 0.582381)
 sprite_frames = SubResource("SpriteFrames_wr8iv")

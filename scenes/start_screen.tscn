@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://0lfkukbsr71a"]
+[gd_scene load_steps=11 format=3 uid="uid://0lfkukbsr71a"]
 
 [ext_resource type="FontFile" uid="uid://bvxrs7qlk6sfc" path="res://fonts/RoyalBrand-Regular.otf" id="1_tx5wa"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="2_hm208"]
 [ext_resource type="StyleBox" uid="uid://8ca7qiwflvuv" path="res://scenes/hover_button.tres" id="3_5pab1"]
 [ext_resource type="Script" uid="uid://y1xwx2nt08ia" path="res://scenes/start.gd" id="3_o30b1"]
+[ext_resource type="Texture2D" uid="uid://ci8fd1odbm75r" path="res://images/do_tutorial.png" id="5_hm208"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka6nf"]
 bg_color = Color(0, 0.333229, 0.764506, 1)
@@ -109,6 +110,11 @@ theme_override_styles/hover = ExtResource("3_5pab1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_r2jwc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hm208")
 text = "Tutorial"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(987, 383)
+scale = Vector2(0.485099, 0.462617)
+texture = ExtResource("5_hm208")
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/HowToPlay" to="Buttons/Start" method="_on_how_to_play_pressed"]

@@ -37,7 +37,6 @@ func start_demo():
 	demo_now.emit()
 	
 func go_levels():
+	update_points.emit()
 	get_tree().change_scene_to_file("res://scenes/levels.tscn")
 	
-func update_levels_points():
-	update_points.emit()

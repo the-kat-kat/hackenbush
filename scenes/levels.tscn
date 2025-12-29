@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvqxqdv3u188g"]
+[gd_scene load_steps=14 format=3 uid="uid://cvqxqdv3u188g"]
 
 [ext_resource type="Script" uid="uid://dg58p4pc65b7m" path="res://levels.gd" id="1_5ekxl"]
-[ext_resource type="Texture2D" uid="uid://dfovflh124lr5" path="res://images/heart.png" id="3_jj4e6"]
 [ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="3_ly2og"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="4_ly2og"]
+[ext_resource type="Texture2D" uid="uid://cbcnhl32vylsh" path="res://images/level1.png" id="4_r44b6"]
+[ext_resource type="Texture2D" uid="uid://cl2o2yf74pgdq" path="res://images/level2.png" id="5_1jewu"]
+[ext_resource type="Texture2D" uid="uid://b1e8j1eoubmds" path="res://images/locked.png" id="6_ibiju"]
+[ext_resource type="Texture2D" uid="uid://hllrrk5j7b8f" path="res://images/home.png" id="7_00hpi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj4e6"]
 bg_color = Color(0.113725, 0.564706, 1, 1)
@@ -17,6 +20,14 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jj4e6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6g56m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbvtp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxgxo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8i0b8"]
 
 [node name="Levels" type="Node2D" node_paths=PackedStringArray("player_1_label", "player_2_label")]
 script = ExtResource("1_5ekxl")
@@ -74,169 +85,73 @@ horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(50, 50)
-offset_left = 69.0
-offset_top = 5.0
-offset_right = 1069.0
-offset_bottom = 655.0
+offset_left = 142.0
+offset_top = 100.0
+offset_right = 1016.0
+offset_bottom = 677.0
 theme_override_constants/h_separation = 50
-theme_override_constants/v_separation = 50
+theme_override_constants/v_separation = 20
 columns = 3
 
 [node name="Level1" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
-icon = ExtResource("3_jj4e6")
+icon = ExtResource("4_r44b6")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Label" type="Label" parent="GridContainer/Level1"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -32.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ly2og")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Level2" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
-icon = ExtResource("3_jj4e6")
+icon = ExtResource("5_1jewu")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Label" type="Label" parent="GridContainer/Level2"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -32.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ly2og")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Level3" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
-icon = ExtResource("3_jj4e6")
+icon = ExtResource("6_ibiju")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Label" type="Label" parent="GridContainer/Level3"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -32.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ly2og")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Level4" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
-icon = ExtResource("3_jj4e6")
+icon = ExtResource("6_ibiju")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Label" type="Label" parent="GridContainer/Level4"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -32.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ly2og")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Level5" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
-icon = ExtResource("3_jj4e6")
+icon = ExtResource("6_ibiju")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Label" type="Label" parent="GridContainer/Level5"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -32.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ly2og")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Level6" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jj4e6")
-icon = ExtResource("3_jj4e6")
+icon = ExtResource("6_ibiju")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GridContainer/Level6"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -32.0
-offset_right = 50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_ly2og")
-theme_override_font_sizes/font_size = 30
-text = "Level 1"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Home" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 541.0
+offset_right = 102.0
+offset_bottom = 647.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6g56m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hbvtp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bxgxo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i0b8")
+icon = ExtResource("7_00hpi")
+expand_icon = true
 
 [connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="GridContainer/Level2" to="." method="_on_level_2_pressed"]
@@ -244,3 +159,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="GridContainer/Level4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="GridContainer/Level5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="GridContainer/Level6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://baevqeauxqimi"]
+[gd_scene load_steps=15 format=3 uid="uid://baevqeauxqimi"]
 
 [ext_resource type="Script" uid="uid://cbsr05bimqnsu" path="res://scenes/game_manager.gd" id="1_hrcei"]
 [ext_resource type="Script" uid="uid://dqbvkijcabsh5" path="res://scenes/ui.gd" id="2_xa7n4"]
 [ext_resource type="FontFile" uid="uid://cp17gu3ex5jqv" path="res://fonts/catsong.ttf" id="3_bo4dx"]
 [ext_resource type="StyleBox" uid="uid://bmgs8sinwmrm6" path="res://styles/red_box.tres" id="4_76toy"]
 [ext_resource type="Script" uid="uid://swanf6dtoub4" path="res://scenes/hackenbush.gd" id="5_8g4ke"]
+[ext_resource type="Texture2D" uid="uid://d4enrtcexhfdy" path="res://images/kat.png" id="5_bo4dx"]
 [ext_resource type="Resource" uid="uid://bpriehwalvx1a" path="res://dialogue/win.dialogue" id="6_56gwk"]
+[ext_resource type="Texture2D" uid="uid://b4sdb1j8es8ra" path="res://images/kook.png" id="6_76toy"]
 [ext_resource type="Script" uid="uid://cxltml37xleq7" path="res://scenes/curve.gd" id="7_ve5ok"]
 [ext_resource type="PackedScene" uid="uid://gx1i8ev281o3" path="res://scenes/vertex.tscn" id="8_cleqw"]
 
@@ -19,6 +21,31 @@ expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g4ke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bo4dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_76toy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56gwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_76toy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1219, 185)
@@ -43,7 +70,7 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 mouse_filter = 2
-color = Color(0.396889, 0.396889, 0.396889, 1)
+color = Color(0.959222, 0.882921, 0.728923, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 5
@@ -75,6 +102,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
 text = "Player 2"
 horizontal_alignment = 1
 
+[node name="Kat" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(160, 376)
+scale = Vector2(0.536473, 0.508548)
+sprite_frames = SubResource("SpriteFrames_8g4ke")
+
+[node name="Kook" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(920, 368)
+scale = Vector2(0.594444, 0.582381)
+sprite_frames = SubResource("SpriteFrames_56gwk")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
@@ -98,8 +135,8 @@ vertices_holder = NodePath("../Vertices")
 [node name="0-1" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("7_ve5ok")
 p0 = Vector2(1266, 1380)
-p1 = Vector2(1267, 1230)
-p2 = Vector2(1267, 1230)
+p1 = Vector2(1266, 1233)
+p2 = Vector2(1266, 1233)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/0-1"]
 position = Vector2(-890, -898)
@@ -160,9 +197,9 @@ script = ExtResource("7_ve5ok")
 curved = null
 edge_color = "red"
 node_a = 5
-p0 = Vector2(1624, 417)
-p1 = Vector2(1620, 551)
-p2 = Vector2(1620, 551)
+p0 = Vector2(1622, 415)
+p1 = Vector2(1623, 551)
+p2 = Vector2(1623, 551)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-1"]
 position = Vector2(-1246, -215)
@@ -182,9 +219,9 @@ curved = true
 edge_color = "red"
 node_a = 1
 node_b = 4
-p0 = Vector2(1326, 1155)
+p0 = Vector2(1466, 1204)
 p1 = Vector2(1386, 1219)
-p2 = Vector2(1469, 1201)
+p2 = Vector2(1330, 1156)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/1-4"]
 position = Vector2(-1090, -867)
@@ -205,7 +242,7 @@ node_a = 3
 node_b = 5
 p0 = Vector2(1632, 1013)
 p1 = Vector2(1555, 1064)
-p2 = Vector2(1470, 1062)
+p2 = Vector2(1466, 1067)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/3-5"]
 position = Vector2(-1090, -867)
@@ -225,9 +262,9 @@ curved = true
 edge_color = "red"
 node_a = 5
 node_b = 8
-p0 = Vector2(1299, 1015)
+p0 = Vector2(1466, 1068)
 p1 = Vector2(1370, 1063)
-p2 = Vector2(1465, 1063)
+p2 = Vector2(1297, 1011)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-8"]
 position = Vector2(-1090, -867)
@@ -246,9 +283,9 @@ script = ExtResource("7_ve5ok")
 curved = true
 node_a = 8
 node_b = 5
-p0 = Vector2(1301, 1014)
+p0 = Vector2(1297, 1011)
 p1 = Vector2(1379, 1017)
-p2 = Vector2(1469, 1063)
+p2 = Vector2(1468, 1062)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/8-5"]
 position = Vector2(-1090, -867)
@@ -268,9 +305,9 @@ curved = true
 edge_color = "red"
 node_a = 5
 node_b = 3
-p0 = Vector2(1630, 1013)
+p0 = Vector2(1466, 1066)
 p1 = Vector2(1544, 1016)
-p2 = Vector2(1467, 1065)
+p2 = Vector2(1634, 1011)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-3"]
 position = Vector2(-1090, -867)
@@ -332,9 +369,9 @@ curved = true
 edge_color = "red"
 node_a = 5
 node_b = 6
-p0 = Vector2(1533, 914)
+p0 = Vector2(1465, 1067)
 p1 = Vector2(1484, 969)
-p2 = Vector2(1467, 1065)
+p2 = Vector2(1530, 915)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-6"]
 position = Vector2(-1090, -867)
@@ -354,9 +391,9 @@ curved = true
 edge_color = "red"
 node_a = 7
 node_b = 5
-p0 = Vector2(1413, 908)
+p0 = Vector2(1410, 908)
 p1 = Vector2(1454, 966)
-p2 = Vector2(1467, 1065)
+p2 = Vector2(1465, 1067)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/7-5"]
 position = Vector2(-1090, -867)
@@ -376,9 +413,9 @@ curved = true
 edge_color = "red"
 node_a = 5
 node_b = 7
-p0 = Vector2(1413, 908)
+p0 = Vector2(1466, 1068)
 p1 = Vector2(1409, 987)
-p2 = Vector2(1467, 1065)
+p2 = Vector2(1410, 907)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/5-7"]
 position = Vector2(-1090, -867)
@@ -398,13 +435,13 @@ curved = true
 node_b = 8
 p0 = Vector2(1266, 1380)
 p1 = Vector2(1061, 1259)
-p2 = Vector2(1061, 1259)
+p2 = Vector2(1099, 1048)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/0-8"]
 position = Vector2(-890, -898)
 points = PackedVector2Array(1266, 1380, 1061, 1259, 1099, 1048)
 width = 15.0
-default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+default_color = Color(0.117647, 0.564706, 1, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
@@ -419,7 +456,7 @@ edge_color = "red"
 node_b = 3
 p0 = Vector2(1266, 1380)
 p1 = Vector2(1472, 1256)
-p2 = Vector2(1431, 1044)
+p2 = Vector2(1434, 1043)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/0-3"]
 position = Vector2(-890, -898)
@@ -438,15 +475,15 @@ script = ExtResource("7_ve5ok")
 curved = true
 node_a = 6
 node_b = 3
-p0 = Vector2(1266, 1380)
-p1 = Vector2(1472, 1256)
-p2 = Vector2(1431, 1044)
+p0 = Vector2(1330, 946)
+p1 = Vector2(1397, 985)
+p2 = Vector2(1434, 1042)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/6-3"]
 position = Vector2(-890, -898)
 points = PackedVector2Array(1330, 946, 1397, 985, 1434, 1042)
 width = 15.0
-default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+default_color = Color(0.117647, 0.564706, 1, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
@@ -460,9 +497,9 @@ curved = true
 edge_color = "red"
 node_a = 7
 node_b = 6
-p0 = Vector2(1266, 1380)
-p1 = Vector2(1472, 1256)
-p2 = Vector2(1431, 1044)
+p0 = Vector2(1213, 938)
+p1 = Vector2(1272, 931)
+p2 = Vector2(1330, 946)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/7-6"]
 position = Vector2(-890, -898)
@@ -481,15 +518,15 @@ script = ExtResource("7_ve5ok")
 curved = true
 node_a = 7
 node_b = 8
-p0 = Vector2(1213, 938)
-p1 = Vector2(1272, 931)
-p2 = Vector2(1334, 945)
+p0 = Vector2(1210, 939)
+p1 = Vector2(1143, 977)
+p2 = Vector2(1099, 1041)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/7-8"]
 position = Vector2(-890, -898)
 points = PackedVector2Array(1210, 939, 1143, 977, 1099, 1041)
 width = 15.0
-default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+default_color = Color(0.117647, 0.564706, 1, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2

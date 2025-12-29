@@ -6,7 +6,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.update_points.connect(update_points)
+	GameManager.update_points.connect(update_pts)
+	update_pts()
 	pass
 
 func _on_level_1_pressed() -> void:
@@ -32,6 +33,11 @@ func _on_level_5_pressed() -> void:
 func _on_level_6_pressed() -> void:
 	pass # Replace with function body.
 	
-func update_points():
+func update_pts():
+	print("update points")
 	player_1_label.text = "Player 1: " + str(GameManager.player_1_total_points)
 	player_2_label.text = "Player 2: " + str(GameManager.player_2_total_points)
+
+
+func _on_home_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")

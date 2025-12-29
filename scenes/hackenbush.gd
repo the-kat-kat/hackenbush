@@ -11,6 +11,7 @@ var node_graph= {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.current_player = 1
 	for child in get_children():
 		if child.is_in_group("edges"):
 			register_edge(child)
@@ -50,7 +51,7 @@ func check_floating_edges():
 		var current_node = stack.pop_back()
 		if current_node not in grounded:
 			grounded.append(current_node)
-			
+						
 			for edge in graph.keys():
 				var nodes = graph[edge]
 				if current_node in nodes:
@@ -74,16 +75,29 @@ func check_floating_edges():
 			if not is_safe:
 				edge.queue_free()
 				graph.erase(edge)
-				
-					
-	if graph.size() == 0:
+
+			
+	check_game_over()
+			
+
+func check_game_over():
+	print("checkinggg")
+	var has_valid_move = false
+	for edge in graph.keys():
+		if edge.edge_color == "blue" && GameManager.current_player ==1:
+			has_valid_move = true
+			break
+		elif edge.edge_color == "red" && GameManager.current_player ==2:
+			has_valid_move = true
+			break
+	print("valid?", has_valid_move)
+	if not has_valid_move:
 		if GameManager.current_player == 1:
 			GameManager.player_1_total_points +=1
 			DialogueManager.show_example_dialogue_balloon(dialogue_resource, "player_1")
 		elif GameManager.current_player == 2:
 			GameManager.player_2_total_points +=1
 			DialogueManager.show_example_dialogue_balloon(dialogue_resource, "player_2")
-		GameManager.update_levels_points()
 	else:
 		print("inc")
 		GameManager.inc_player()
