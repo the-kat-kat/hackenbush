@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
-size = Vector2(1219, 185)
+size = Vector2(1535, 185)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ejswk")
@@ -103,7 +103,7 @@ text = "Player 2"
 horizontal_alignment = 1
 
 [node name="Kat" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(160, 376)
+position = Vector2(229, 375)
 scale = Vector2(0.536473, 0.508548)
 sprite_frames = SubResource("SpriteFrames_2ku1j")
 
@@ -115,14 +115,14 @@ sprite_frames = SubResource("SpriteFrames_f31uk")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -9.0
+offset_left = -255.0
 offset_top = 483.0
-offset_right = 1183.0
-offset_bottom = 659.0
-color = Color(0.811968, 0.819782, 0.861055, 1)
+offset_right = 1400.0
+offset_bottom = 716.0
+color = Color(0.923414, 0.802705, 0.554676, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(599.5, 577.5)
+position = Vector2(593, 841)
 shape = SubResource("RectangleShape2D_0wfyh")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
@@ -202,9 +202,9 @@ script = ExtResource("6_2ku1j")
 curved = null
 node_a = 4
 node_b = 3
-p0 = Vector2(1452.59, 579.479)
-p1 = Vector2(2138.53, 649.82)
-p2 = Vector2(2138.53, 649.82)
+p0 = Vector2(1472.76, 579.479)
+p1 = Vector2(2134.49, 629.723)
+p2 = Vector2(2134.49, 629.723)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/4-3"]
 position = Vector2(-139, -68)
@@ -267,8 +267,8 @@ curved = null
 edge_color = "red"
 node_a = 2
 p0 = Vector2(1426, 363)
-p1 = Vector2(1559, 393)
-p2 = Vector2(1559, 393)
+p1 = Vector2(1554, 390)
+p2 = Vector2(1554, 390)
 
 [node name="Line2D" type="Line2D" parent="Hackenbush/2-1"]
 position = Vector2(-1136, -120)
@@ -307,6 +307,7 @@ position = Vector2(576, 325)
 
 [connection signal="input_event" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Hackenbush/0-1" to="Hackenbush/0-1" method="_on_mouse_exited"]
 [connection signal="input_event" from="Hackenbush/0-5" to="Hackenbush/0-5" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hackenbush/0-5" to="Hackenbush/0-5" method="_on_mouse_entered"]
 [connection signal="input_event" from="Hackenbush/5-4" to="Hackenbush/5-4" method="_on_input_event"]

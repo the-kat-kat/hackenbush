@@ -103,26 +103,26 @@ text = "Player 2"
 horizontal_alignment = 1
 
 [node name="Kat" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(160, 376)
+position = Vector2(224, 375)
 scale = Vector2(0.536473, 0.508548)
 sprite_frames = SubResource("SpriteFrames_8g4ke")
 
 [node name="Kook" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(920, 368)
+position = Vector2(976, 369)
 scale = Vector2(0.594444, 0.582381)
 sprite_frames = SubResource("SpriteFrames_56gwk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -9.0
+offset_left = -278.0
 offset_top = 483.0
-offset_right = 1183.0
-offset_bottom = 659.0
-color = Color(0.811968, 0.819782, 0.861055, 1)
+offset_right = 1399.0
+offset_bottom = 763.0
+color = Color(0.923414, 0.802705, 0.554676, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(599.5, 577.5)
+position = Vector2(600, 898)
 shape = SubResource("RectangleShape2D_0wfyh")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
@@ -302,7 +302,6 @@ scale = Vector2(0.247834, 0.298544)
 [node name="5-3" type="Area2D" parent="Hackenbush" groups=["edge"]]
 script = ExtResource("7_ve5ok")
 curved = true
-edge_color = "red"
 node_a = 5
 node_b = 3
 p0 = Vector2(1466, 1066)

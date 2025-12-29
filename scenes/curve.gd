@@ -118,5 +118,3 @@ func not_chosen():
 	
 func chosen():
 	color_line()
-
-	
